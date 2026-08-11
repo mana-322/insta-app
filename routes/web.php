@@ -16,7 +16,7 @@ use App\Http\Controllers\Admin\CategoriesController;
 
 //add yuka comment
 
-
+//add kanon comment
 
 Auth::routes();
 
