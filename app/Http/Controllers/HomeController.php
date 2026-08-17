@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Story;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -38,9 +39,24 @@ class HomeController extends Controller
         // $all_posts = $this->post->latest()->get();
         $home_posts = $this->getHomePosts();
         $suggested_users = $this->getSuggestedUsers();
+
+        $user = Auth::user();
+
+        $myActiveStories = $user->stories()->active()->get();
+        $followingIds = $user->following->pluck('following_id');
+
+        $userStories = Story::active()
+            ->whereIn('user_id', $followingIds)
+            ->with('user')
+            ->get()
+            ->groupBy('user_id');
+
+
         return view('users.home')
                 ->with('home_posts',$home_posts)
-                ->with('suggested_users', $suggested_users);
+                ->with('suggested_users', $suggested_users)
+                ->with('myActiveStories', $myActiveStories)
+                ->with('userStories', $userStories);
     }
 
     #Get the posts pf the users that the AUTH user is following
@@ -78,4 +94,5 @@ class HomeController extends Controller
         $users = $this->user->where('name', 'like', '%'.$request->search.'%')->get();
         return view('users.search')->with('users',$users)->with('search', $request->search);
     }
+
 }

@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
@@ -72,6 +73,16 @@ class User extends Authenticatable
     #returens TRUE if the AUTH USER already 
     public function isFollowed(){
         return $this->followers()->where('follower_id', Auth::user()->id)->exists();
+    }
+
+    public function stories(): HasMany
+    {
+        return $this->hasMany(Story::class);
+    }
+
+    public function hasActiveStories()
+    {
+        return $this->stories()->active()->exists();
     }
 
 }

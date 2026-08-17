@@ -6,6 +6,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\FollowController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StoryController;
 use Illuminate\Support\Facades\Route;
 
 #ADMIN CONTROLLERS
@@ -71,6 +72,16 @@ Route::group(['middleware' => 'auth'], function(){
     #FOLLOW
     Route::post('/follow/{user_id}/store', [FollowController::class, 'store'])->name('follow.store');
     Route::delete('/follow/{user_id}/destroy', [FollowController::class, 'destroy'])->name('follow.destroy');
+
+    #STORY
+    Route::post('/stories', [StoryController::class, 'store'])->name('stories.store');
+    Route::get('/stories/archive', [StoryController::class, 'archive'])->name('stories.archive');
+    Route::delete('/story/{id}', [StoryController::class, 'destroy'])->name('story.destroy');
+
+    #STORY COMMENT. LIKE
+    Route::post('/stories/{id}/like', [StoryController::class, 'like'])->name('stories.like');
+    Route::delete('/stories/{id}/unlike', [StoryController::class, 'unlike'])->name('stories.unlike');
+    Route::post('/stories/{id}/comments', [StoryController::class, 'storeComment'])->name('stories.comments.store');
     
 });
 
