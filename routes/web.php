@@ -7,6 +7,7 @@ use App\Http\Controllers\FollowController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StoryController;
+use App\Http\Controllers\MessageController;
 use Illuminate\Support\Facades\Route;
 
 #ADMIN CONTROLLERS
@@ -83,6 +84,11 @@ Route::group(['middleware' => 'auth'], function(){
     Route::delete('/stories/{id}/unlike', [StoryController::class, 'unlike'])->name('stories.unlike');
     Route::post('/stories/{id}/comments', [StoryController::class, 'storeComment'])->name('stories.comments.store');
     
+    #MESSAGE
+    Route::get('/messages', [MessageController::class, 'index'])->name('message.index');
+    Route::get('/messages/{user_id}', [MessageController::class, 'show'])->name('message.show');
+    Route::post('/messages/{user_id}/store', [MessageController::class, 'store'])->name('message.store');
+
 });
 
 

@@ -75,6 +75,13 @@
                                 </a>
                             </li>
 
+                            {{-- Messages --}}
+                             <li class="nav-item" title="Messages">
+                                <a href="{{route('message.index')}}" class="nav-link">
+                                    <i class="fa-regular fa-paper-plane text-dark icon-sm"></i>
+                                </a>
+                            </li>
+
                             {{-- Account --}}
                             <li class="nav-item dropdown">
                                <button id="account-dropdown" class="btn shadow-none nav-link" data-bs-toggle="dropdown">
