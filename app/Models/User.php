@@ -69,9 +69,19 @@ class User extends Authenticatable
         return $this->hasMany(Follow::class, 'follower_id');
     }
 
-    #returens TRUE if the AUTH USER already 
+    #returens TRUE if the AUTH USER already
     public function isFollowed(){
         return $this->followers()->where('follower_id', Auth::user()->id)->exists();
+    }
+
+    #To get all messages sent by the user
+    public function sentMessages(){
+        return $this->hasMany(Message::class, 'sender_id');
+    }
+
+    #To get all messages received by the user
+    public function receivedMessages(){
+        return $this->hasMany(Message::class, 'receiver_id');
     }
 
 }
