@@ -58,3 +58,22 @@
     height: 3.5rem;
     object-fit: cover;
 }
+
+.story-default-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.story-default-icon i {
+    font-size: 56px;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

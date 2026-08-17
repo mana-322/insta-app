@@ -115,6 +115,10 @@
                                         <i class="fa-solid fa-circle-user"></i>Profile
                                     </a>
 
+                                    <a href="{{ route('stories.archive') }}" class="dropdown-item">
+                                        <i class="fa-solid fa-clock-rotate-left"></i>Story Archive
+                                    </a>
+
                                     {{-- Logout --}}
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
