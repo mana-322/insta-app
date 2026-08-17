@@ -6,6 +6,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\FollowController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\MessageController;
 use Illuminate\Support\Facades\Route;
 
 #ADMIN CONTROLLERS
@@ -71,7 +72,12 @@ Route::group(['middleware' => 'auth'], function(){
     #FOLLOW
     Route::post('/follow/{user_id}/store', [FollowController::class, 'store'])->name('follow.store');
     Route::delete('/follow/{user_id}/destroy', [FollowController::class, 'destroy'])->name('follow.destroy');
-    
+
+    #MESSAGE
+    Route::get('/messages', [MessageController::class, 'index'])->name('message.index');
+    Route::get('/messages/{user_id}', [MessageController::class, 'show'])->name('message.show');
+    Route::post('/messages/{user_id}/store', [MessageController::class, 'store'])->name('message.store');
+
 });
 
 
