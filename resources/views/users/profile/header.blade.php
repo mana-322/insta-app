@@ -3,18 +3,18 @@
         @if ($user->avatar)
             <img src="{{ $user->avatar }}" alt="{{ $user->name }}" class="img-thumbnail rounded-circle d-block mx-auto avatar-lg">
             @else
-                <i class="fa-solid fa-circle-user text-secondary d-block text-center icon-lg"></i>
+                <i class="fa-solid fa-circle-user d-block text-center icon-lg" style="color: rgb(252, 200, 228);"></i>
             
         @endif
     </div>
     <div class="col-8">
         <div class="row mb-3">
             <div class="col-auto">
-                <h2 class="display-6 mb-0">{{ $user->name}}</h2>
+                <h2 class="display-6 mb-0" style="color: rgb(70, 46, 15);">{{ $user->name}}</h2>
             </div>
             <div class="col-auto p-2">
                 @if (Auth::user()->id === $user->id)
-                    <a href="{{ route('profile.edit') }}" class="btn btn-outline-secondary btn-sm fw-bold">Edit Profile</a>
+                    <a href="{{ route('profile.edit') }}" class="btn btn-outline-none btn-sm fw-bold" style="background-color: rgb(252, 200, 228); color: rgb(70, 46, 15);">Edit Profile</a>
                 @else
                 @if ($user->isFollowed())
                      <form action="{{ route('follow.destroy', $user->id) }}" method="post">
@@ -34,17 +34,17 @@
         </div>
         <div class="row mb-3">
             <div class="col-auto">
-                <a href="{{ route('profile.show', $user->id) }}" class="text-decoration-none text-dark">
+                <a href="{{ route('profile.show', $user->id) }}" class="text-decoration-none" style="color: rgb(70, 46, 15)">
                     <strong>{{$user->posts->count() }}</strong>{{ $user->posts->count() == 1 ? 'post' : 'posts' }}
                 </a>
             </div>
             <div class="col-auto">
-                <a href="{{ route('profile.followers', $user->id) }}" class="text-decoration-none text-dark">
+                <a href="{{ route('profile.followers', $user->id) }}" class="text-decoration-none" style="color: rgb(70, 46, 15)">
                     <strong>{{ $user->followers->count() }}</strong> {{ $user->followers->count() == 1 ? 'follower' : 'followers' }}
                 </a>
             </div>
             <div class="col-auto">
-                <a href="{{ route('profile.following', $user->id) }}" class="text-decoration-none text-dark">
+                <a href="{{ route('profile.following', $user->id) }}" class="text-decoration-none" style="color: rgb(70, 46, 15)">
                     <strong>{{ $user->following->count() }}</strong> following
                 </a>
             </div>

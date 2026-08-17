@@ -5,7 +5,7 @@
 @section('content')
     <div class="row justify-content-center">
         <div class="col-5">
-            <p class="h5 text-muted mb-4">Search results for "<span class="fw-bold">{{ $search }}</span>"</p>
+            <p class="h5 mb-4" style="color: rgb(99, 75, 46)">Search results for "<span class="fw-bold">{{ $search }}</span>"</p>
 
             @forelse ($users as $user)
                 <div class="row align-items-center mb-3">
@@ -14,13 +14,13 @@
                             @if ($user->avatar)
                                 <img src="{{ $user->avatar }}" alt="{{ $user->name }}" class="rounded-circle avatar-md">
                             @else
-                                <i class="fa-solid fa-circle-user text-secondary icon-md"></i>
+                                <i class="fa-solid fa-circle-user icon-md" style="color: rgb(252, 200, 228);"></i>
                             @endif
                         </a>
                     </div>
                     <div class="col ps-0 text-truncate">
                         <a href="{{ route('profile.show', $user->id) }}"
-                            class="text-decoration-none text-dark fwbold">{{ $user->name }}</a>
+                            class="text-decoration-none fwbold" style="color: rgb(99, 75, 46)">{{ $user->name }}</a>
                     </div>
                     <div class="col-auto">
                         @if ($user->id !== Auth::user()->id)
@@ -34,14 +34,14 @@
                             @else
                                 <form action="{{ route('follow.store', $user->id) }}" method="post">
                                     @csrf
-                                    <button type="submit" class="btn btn-primary btn-sm fw-bold">Follow</button>
+                                    <button type="submit" class="btn btn-sm fw-bold" style="bacground-color: rgb(252, 200, 228); color: rgb(70, 46, 15);">Follow</button>
                                 </form>
                             @endif
                         @endif
                     </div>
                 </div>
             @empty
-                <p class="lead text-muted text-center">No users found.</p>
+                <p class="lead text-center" style="color: rgb(99, 75, 46)">No users found.</p>
             @endforelse
         </div>
     </div>

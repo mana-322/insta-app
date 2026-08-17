@@ -18,7 +18,7 @@
             @endforeach
         </div>
         @else
-        <h3 class="text-muted text-center">No Posts Yet</h3>
+        <h3 class="text-center" style="color: rgb(99, 75, 46)">No Posts Yet</h3>
         @endif
     </div>
     

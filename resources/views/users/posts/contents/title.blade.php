@@ -1,4 +1,4 @@
-<div class="card-header bg-white py-3">
+<div class="card-header py-3" style="background-color: #fcf8ef;">
     <div class="row  align-items-center">
         <div class="col-auto">
             <a href="{{ route('profile.show', $post->user->id) }}">
@@ -6,18 +6,18 @@
                 <img src="{{ $post->user->avatar }}" alt="{{$post->user->avatar}}" class="rounded-circle avatar-sm">
                     
                 @else
-                <i class="fa-solid fa-circle-user text-secondary icon-sm"></i>
+                <i class="fa-solid fa-circle-user icon-sm" style="color: rgb(252, 200, 228);"></i>
                     
                 @endif
             </a>
         </div>
         <div class="col ps-0">
-            <a href="{{ route('profile.show', $post->user->id) }}" class="text-decoration-none text-dark">{{$post->user->name}}</a>
+            <a href="{{ route('profile.show', $post->user->id) }}" class="text-decoration-none fw-bold" style="color: rgb(70, 46, 15); font-size: 20px;">{{$post->user->name}}</a>
         </div>
         <div class="col-auto">
             <div class="dropdown">
                 <button class="btn btn-sm shadow-none" data-bs-toggle=dropdown>
-                    <i class="fa-solid fa-ellipsis"></i>
+                    <i class="fa-solid fa-face-smile" style="color: rgb(252, 200, 228); font-size: 30px;"></i>
                 </button>
 
                 {{-- If you are the owner, you can edit or delete post --}}
