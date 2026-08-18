@@ -4,7 +4,77 @@
 
 @section('content')
         <div class="row gx-5">
-            <div class="col-8">
+            <div class="col-8">     
+                      
+        <div class="card mb-4 border-0 shadow-sm" style="background-color: #fcf8ef;">
+            <div class="card-body d-flex align-items-center overflow-auto py-3">
+        
+        <div class="text-center me-4" style="min-width: 70px;">
+            <div class="position-relative d-inline-block">
+                @if ($myActiveStories->isNotEmpty())
+                    <div class="rounded-circle p-[2px] d-inline-block" style="border: 2px solid #e1306c; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#viewMyStoryModal">
+                        @if (Auth::user()->avatar)
+                           <div class="story-ring p-1">
+                               <img src="{{ Auth::user()->avatar }}" class="avatar-md rounded-circle">
+                            </div>
+                        @else
+                            <div class="d-flex align-items-center justify-content-center bg-white rounded-circle" style="width: 50px; height: 50px;">
+                                <i class="fa-solid fa-circle-user" style="font-size: 48px; color: rgb(252, 200, 228);"></i>
+                            </div>
+                        @endif
+                    </div>
+                @else
+                    
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#createStoryModal" class="text-decoration-none">
+                        @if (Auth::user()->avatar)
+                            <img src="{{ Auth::user()->avatar }}" class="rounded-circle" style="width: 50px; height: 50px; object-fit: cover;">
+                        @else
+                            <div class="rounded-circle overflow-hidden d-flex align-items-center justify-content-center bg-white" style="width: 50px; height: 50px;">
+                                <i class="fa-solid fa-circle-user" style="font-size: 50px; line-height: 1; color: rgb(252, 200, 228);"></i>
+                            </div>
+                        @endif
+                    </a>
+
+                @endif
+
+                {{-- story create button --}}
+                <button type="button" class="btn btn-sm rounded-circle position-absolute bottom-0 end-0 p-0 d-flex align-items-center justify-content-center" style="width: 20px; height: 20px;  background-color: #cde8f8; color: rgb(70, 46, 15);" data-bs-toggle="modal" data-bs-target="#createStoryModal" title="Add Story">
+                    <i class="fa-solid fa-plus" style="font-size: 10px;"></i>
+                </button>
+            </div>
+            <small class="d-block text-truncate mt-1 fw-bold" style="max-width: 70px; color: rgb(70, 46, 15);">Your story</small>
+        </div>
+
+        {{-- other users story --}}
+       @foreach ($userStories as $userId => $stories)
+    @php
+        $storyUser = $stories->first()->user;
+    @endphp
+
+    <div class="text-center me-3 d-inline-block" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#viewUserStoryModal-{{ $userId }}">
+       
+        <div class="rounded-circle d-flex align-items-center justify-content-center p-2px " style="border: 2px solid #e1306c; width: 56px; height: 56px;">
+            @if ($storyUser->avatar)
+                <img src="{{ $storyUser->avatar }}" class="rounded-circle w-100 h-100" style="object-fit: cover;">
+            @else
+                <i class="fa-solid fa-circle-user bg-white rounded-circle d-flex align-items-center justify-content-center w-100 h-100" style="font-size: 50px; color: rgb(252, 200, 228);"></i>
+            @endif
+        </div>
+        
+                <small class="d-block text-truncate mt-1" style="max-width: 60px; color: rgb(70, 46, 15);">{{ $storyUser->name }}</small>
+            </div>
+        @endforeach
+
+            </div>
+    </div>
+                
+                {{-- story create modal --}}
+                @include('users.stories.modals.create')
+                {{-- show my story modal --}}
+                @include('users.stories.modals.my-story')
+                {{-- show other story modal --}}
+                @include('users.stories.modals.user-story')
+             
                 @forelse ($home_posts as $post)
                 <div class="card mb-4">
                     {{-- title --}}
@@ -84,6 +154,17 @@
                 @endif
             </div>
         </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                if (window.location.hash) {
+                    const targetModal = document.querySelector(window.location.hash);
+                    if (targetModal) {
+                        new bootstrap.Modal(targetModal).show();
+                    }
+                }
+            });
+        </script>
     
 @endsection
 

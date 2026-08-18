@@ -36,13 +36,13 @@
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit"
-                                                class="border-0 bg-transparent p-0 btn-sm" style="color: rgb(70, 46, 15);">Following</button>
+                                                class="border-0 bg-transparent p-0 btn-sm" style="backbround-color: rgb(252, 200, 228); color: rgb(70, 46, 15);">Following</button>
                                         </form>
                                     @else
                                         <form action="{{ route('follow.store', $follower->follower->id) }}" method="post">
                                             @csrf
                                             <button type="submit"
-                                                class="border-0 bg-transparent p-0 btn-sm" style="color: rgb(70, 46, 15);">Follow</button>
+                                                class="border-0 bg-transparent p-0 btn-sm" style="backbround-color: rgb(252, 200, 228); color: rgb(70, 46, 15);">Follow</button>
                                         </form>
                                     @endif
                                 @else

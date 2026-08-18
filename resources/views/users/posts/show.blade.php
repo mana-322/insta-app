@@ -51,12 +51,12 @@
                     <i class="fa-solid fa-face-smile" style="color: rgb(252, 200, 228); font-size: 20px;"></i>
                 </button>
 
-                <div class="dropdown-menu">
-                    <a href="{{ route('post.edit', $post->id) }}" class="dropdown-item">
-                        <i class="fa-regular fa-pen-to-square"></i>Edit
+                <div class="dropdown-menu" style="background-color: #b4dff9;">
+                    <a href="{{ route('post.edit', $post->id) }}" class="dropdown-item" style="color: rgb(70, 46, 15);">
+                        <i class="fa-regular fa-pen-to-square" style="color: rgb(70, 46, 15);"></i>Edit
                     </a>
-                    <button class="dropdown-item text-danger" data-bs-toggle="modal" data-bs-target="#delete-post-{{$post->id}}">
-                        <i class="fa-regular fa-trash-can"></i>Delete
+                    <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#delete-post-{{$post->id}}" style="color: rgb(253, 119, 173);">
+                        <i class="fa-regular fa-trash-can" style="color: rgb(253, 119, 173);"></i>Delete
                     </button>
                 </div>
                 {{-- include modal here --}}   
@@ -68,13 +68,13 @@
                 <form action="{{ route('follow.destroy', $post->user->id) }}" method="post">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="border-0 bg-transparent p-0 text-secondary">Following</button>
+                    <button type="submit" class="border-0 bg-transparent p-0" style="color: rgb(199, 170, 132);">Following</button>
                 </form>
                     
                 @else
                 <form action="{{ route('follow.store', $post->user->id) }}" method="post">
                     @csrf
-                    <button type="submit" class="border-0 bg-transparent p-0 text-primary">Follow</button>
+                    <button type="submit" class="border-0 bg-transparent p-0" style="color: rgb(70, 46, 15);">Follow</button>
                 </form>
                     
                 @endif
@@ -92,7 +92,7 @@
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-sm shadow-none p-0">
-                        <i class="fa-solid fa-heart" style="color: rgb(253, 119, 173);"></i>
+                        <i class="fa-solid fa-heart scale-down-center" style="color: rgb(253, 119, 173);"></i>
                     </button>
                 </form>
                     

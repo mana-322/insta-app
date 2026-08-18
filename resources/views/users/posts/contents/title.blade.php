@@ -22,12 +22,12 @@
 
                 {{-- If you are the owner, you can edit or delete post --}}
                 @if (Auth::user()->id === $post->user->id)
-                <div class="dropdown-menu">
+                <div class="dropdown-menu" style="background-color: #b4dff9;">
                     <a href="{{ route('post.edit', $post->id) }}" class="dropdown-item">
-                        <i class="fa-regular fa-pen-to-square"></i>Edit
+                        <i class="fa-regular fa-pen-to-square" style="color: rgb(70, 46, 15);"></i>Edit
                     </a>
-                    <button class="dropdown-item text-danger" data-bs-toggle="modal" data-bs-target="#delete-post-{{$post->id}}">
-                        <i class="fa-regular fa-trash-can"></i>Delete
+                    <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#delete-post-{{$post->id}}" style="color: rgb(253, 119, 173);">
+                        <i class="fa-regular fa-trash-can" style="color: rgb(253, 119, 173);"></i>Delete
                     </button>
                 </div>
                 {{-- include modal here --}}   
@@ -35,12 +35,12 @@
 
                 @else
                 {{-- if you are not the owner, show unfollow button --}}
-                <div class="dropdown-menu">
+                <div class="dropdown-menu" style="background-color: #b4dff9;">
                     <form action="{{ route('follow.destroy', $post->user->id )}}" method="post">
                         @csrf
                         @method('DELETE')
 
-                        <button type="submit" class="dropdown-item text-danger">Unfollow</button>
+                        <button type="submit" class="dropdown-item" style="color: rgb(253, 119, 173);">Unfollow</button>
                     </form>
                 </div>
                     

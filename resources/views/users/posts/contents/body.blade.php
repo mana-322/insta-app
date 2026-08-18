@@ -8,16 +8,16 @@
         <div class="row align-items-center">
             <div class="col-auto">
                 @if ($post->isLiked())
-                     <form action="{{ route('like.destroy', $post->id )}}" method="post">
+                     <form action="{{ route('like.destroy', $post->id )}}" method="post" class="like-form">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-sm shadow-none p-0">
-                        <i class="fa-solid fa-heart" style="color: rgb(253, 119, 173);"></i>
+                        <i class="fa-solid fa-heart scale-down-center" style="color: rgb(253, 119, 173);"></i>
                     </button>
                 </form>
                     
                 @else
-                <form action="{{ route('like.store', $post->id )}}" method="post">
+                <form action="{{ route('like.store', $post->id )}}" method="post" class="like-form">
                     @csrf
                     <button type="submit" class="btn btn-sm shadow-none p-0">
                         <i class="fa-regular fa-heart" style="color: rgb(70, 46, 15);"></i>
@@ -51,3 +51,19 @@
     </div>
 
 </div>
+<script>
+document.querySelectorAll('.like-form').forEach(form => {
+    form.addEventListener('submit', function () {
+        sessionStorage.setItem('scrollY', window.scrollY);
+    });
+});
+
+window.addEventListener('load', function () {
+    const scrollY = sessionStorage.getItem('scrollY');
+
+    if (scrollY !== null) {
+        window.scrollTo(0, Number(scrollY));
+        sessionStorage.removeItem('scrollY');
+    }
+});
+</script>
