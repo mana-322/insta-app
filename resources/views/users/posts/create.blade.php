@@ -8,7 +8,7 @@
 
     <div class="mb-3">
         <label for="category" class="form-label d-block fw-bold" style="color: rgb(70, 46, 15);">
-            Category <span class="text-muted fw-normal">(up to 3)</span>
+            Category <span class="fw-normal" style="color: rgb(199, 170, 132);">(up to 3)</span>
         </label>
 
         @foreach ($all_categories as $category)
@@ -38,7 +38,7 @@
     <div class="mb-4">
         <label for="image" class="form-label fw-bold" style="color: rgb(70, 46, 15);">Image</label>
         <input type="file" name="image" id="image" class="form-control" aria-describedby="image-info" style="background-color: rgb(252, 200, 228);">
-        <div class="form-text" id="image-info">
+        <div class="form-text" id="image-info" style="color: rgb(199, 170, 132);">
             The acceptable formats are jpeg, jpg, png, and gif only. <br>
             Max file size is 1048KB.
         </div>

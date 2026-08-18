@@ -21,16 +21,16 @@
                      <form action="{{ route('follow.destroy', $user->id) }}" method="post">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn btn-outline-secondary btn-sm fw-bold">Following</button>
+                    <button type="submit" class="btn btn-outline-none btn-sm fw-bold" style="background-color: rgb(252, 200, 228); color: rgb(70, 46, 15);">Following</button>
                 </form>
                 @else
                 <form action="{{ route('follow.store', $user->id) }}" method="post">
                     @csrf
-                    <button type="submit" class="btn btn-primary btn-sm fw-bold">Follow</button>
+                    <button type="submit" class="btn btn-sm fw-bold" style="background-color: rgb(252, 200, 228); color: rgb(70, 46, 15);">Follow</button>
                 </form>
 
                 @endif
-                <a href="{{ route('message.show', $user->id) }}" class="btn btn-outline-secondary btn-sm fw-bold">Message</a>
+                <a href="{{ route('message.show', $user->id) }}" class="btn btn-outline-none btn-sm fw-bold" style="background-color: rgb(252, 200, 228); color: rgb(70, 46, 15);">Message</a>
                 </div>
                 @endif
             </div>
@@ -53,6 +53,6 @@
             </div>
         </div>
 
-        <p class="fw-bold">{{ $user->introduction }}</p>
+        <p class="fw-bold" style="color: rgb(99, 75, 46)">{{ $user->introduction }}</p>
     </div>
 </div>

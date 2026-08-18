@@ -29,7 +29,7 @@
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit"
-                                        class="btn btn-outline-secondary fw-bold btn-ms">Following</button>
+                                        class="btn btn-outline-none fw-bold btn-ms" style="background-color: rgb(252, 200, 228); color: rgb(70, 46, 15);">Following</button>
                                 </form>
                             @else
                                 <form action="{{ route('follow.store', $user->id) }}" method="post">

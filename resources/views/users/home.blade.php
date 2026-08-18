@@ -6,7 +6,7 @@
         <div class="row gx-5">
             <div class="col-8">     
                       
-        <div class="card mb-4 border-0 shadow-sm">
+        <div class="card mb-4 border-0 shadow-sm" style="background-color: #fcf8ef;">
             <div class="card-body d-flex align-items-center overflow-auto py-3">
         
         <div class="text-center me-4" style="min-width: 70px;">
@@ -19,7 +19,7 @@
                             </div>
                         @else
                             <div class="d-flex align-items-center justify-content-center bg-white rounded-circle" style="width: 50px; height: 50px;">
-                                <i class="fa-solid fa-circle-user text-secondary" style="font-size: 48px;"></i>
+                                <i class="fa-solid fa-circle-user" style="font-size: 48px; color: rgb(252, 200, 228);"></i>
                             </div>
                         @endif
                     </div>
@@ -30,7 +30,7 @@
                             <img src="{{ Auth::user()->avatar }}" class="rounded-circle" style="width: 50px; height: 50px; object-fit: cover;">
                         @else
                             <div class="rounded-circle overflow-hidden d-flex align-items-center justify-content-center bg-white" style="width: 50px; height: 50px;">
-                                <i class="fa-solid fa-circle-user text-secondary" style="font-size: 50px; line-height: 1;"></i>
+                                <i class="fa-solid fa-circle-user" style="font-size: 50px; line-height: 1; color: rgb(252, 200, 228);"></i>
                             </div>
                         @endif
                     </a>
@@ -38,11 +38,11 @@
                 @endif
 
                 {{-- story create button --}}
-                <button type="button" class="btn btn-primary btn-sm rounded-circle position-absolute bottom-0 end-0 p-0 d-flex align-items-center justify-content-center" style="width: 20px; height: 20px;" data-bs-toggle="modal" data-bs-target="#createStoryModal" title="Add Story">
+                <button type="button" class="btn btn-sm rounded-circle position-absolute bottom-0 end-0 p-0 d-flex align-items-center justify-content-center" style="width: 20px; height: 20px;  background-color: #cde8f8; color: rgb(70, 46, 15);" data-bs-toggle="modal" data-bs-target="#createStoryModal" title="Add Story">
                     <i class="fa-solid fa-plus" style="font-size: 10px;"></i>
                 </button>
             </div>
-            <small class="d-block text-truncate mt-1 text-dark fw-bold" style="max-width: 70px;">Your story</small>
+            <small class="d-block text-truncate mt-1 fw-bold" style="max-width: 70px; color: rgb(70, 46, 15);">Your story</small>
         </div>
 
         {{-- other users story --}}
@@ -57,11 +57,11 @@
             @if ($storyUser->avatar)
                 <img src="{{ $storyUser->avatar }}" class="rounded-circle w-100 h-100" style="object-fit: cover;">
             @else
-                <i class="fa-solid fa-circle-user text-secondary bg-white rounded-circle d-flex align-items-center justify-content-center w-100 h-100" style="font-size: 50px;"></i>
+                <i class="fa-solid fa-circle-user bg-white rounded-circle d-flex align-items-center justify-content-center w-100 h-100" style="font-size: 50px; color: rgb(252, 200, 228);"></i>
             @endif
         </div>
         
-                <small class="d-block text-truncate mt-1" style="max-width: 60px;">{{ $storyUser->name }}</small>
+                <small class="d-block text-truncate mt-1" style="max-width: 60px; color: rgb(70, 46, 15);">{{ $storyUser->name }}</small>
             </div>
         @endforeach
 

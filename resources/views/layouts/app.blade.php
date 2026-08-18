@@ -87,7 +87,7 @@
                             {{-- Messages --}}
                              <li class="nav-item" title="Messages">
                                 <a href="{{route('message.index')}}" class="nav-link">
-                                    <i class="fa-regular fa-paper-plane text-dark icon-sm"></i>
+                                    <i class="fa-regular fa-paper-plane icon-sm" style="color: rgb(252, 200, 228);"></i>
                                 </a>
                             </li>
 
@@ -125,7 +125,7 @@
                                     </a>
 
                                     <a href="{{ route('stories.archive') }}" class="dropdown-item">
-                                        <i class="fa-solid fa-clock-rotate-left"></i>Story Archive
+                                        <i class="fa-solid fa-clock-rotate-left" style="color: rgb(252, 200, 228);"></i>Story Archive
                                     </a>
 
                                     {{-- Logout --}}

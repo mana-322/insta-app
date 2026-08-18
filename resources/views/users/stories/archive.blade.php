@@ -5,7 +5,7 @@
 @section('content')
 <div class="container">
     <div class="d-flex align-items-center mb-4">
-        <h4 class="fw-bold mb-0"><i class="fa-solid fa-clock-rotate-left me-2"></i>Story Archive</h4>
+        <h4 class="fw-bold mb-0" style="color: rgb(70, 46, 15);"><i class="fa-solid fa-clock-rotate-left me-2"></i>Story Archive</h4>
     </div>
 
     <div class="row g-3">
@@ -22,14 +22,15 @@
                     </div>
 
                     <div class="mb-2">
-                        <small class="text-muted">{{ $story->created_at->format('Y/m/d H:i') }}</small>
+                        <small style="color: rgb(199, 170, 132);">{{ $story->created_at->format('Y/m/d H:i') }}</small>
                     </div>
 
                     <button type="button" 
-                            class="btn btn-sm btn-outline-danger py-1 px-3" 
+                            class="btn btn-sm btn-outline py-1 px-3" 
+                            style="color: rgb(253, 119, 173);"
                             data-bs-toggle="modal" 
                             data-bs-target="#deleteStoryModal-{{ $story->id }}">
-                        <i class="fa-solid fa-trash-can me-1"></i> Delete
+                        <i class="fa-solid fa-trash-can me-1" style="color: rgb(253, 119, 173);"></i> Delete
                     </button>
 
                 </div>
